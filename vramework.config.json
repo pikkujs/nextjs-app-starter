@@ -1,0 +1,7 @@
+{
+  "rootDir": ".",
+  "routeDirectories": ["./backend"],
+  "schemaOutputDirectory": "./backend/generated",
+  "routesOutputFile": "./backend/generated/routes.ts",
+  "tsconfig": "./tsconfig.json"
+}
