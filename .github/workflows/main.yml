@@ -1,0 +1,14 @@
+name: Test
+run-name: Testing workflow
+on: [push]
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: npm install
+      - run: npm run prebuild
+      - run: npm run tsc
+      # - run: npm run test
+      - run: npm run build

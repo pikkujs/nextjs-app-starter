@@ -1,5 +1,5 @@
 {
-  "name": "@todos/next-app",
+  "name": "@vraemwork/nextjs-app-starter",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,26 +7,40 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "routes": "npx @vramework/cli routes",
-    "schemas": "npx @vramework/cli schemas",
+    "routes": "npx --yes @vramework/cli routes",
+    "schemas": "npx --yes @vramework/cli schemas",
     "prebuild": "npm run routes && npm run schemas",
     "tsc": "tsc"
   },
   "dependencies": {
-    "@vramework/core": "^0.3.8",
-    "@vramework/deploy-next": "^0.3.8",
-    "@vramework/services-local": "^0.3.8",
-    "next": "14.2.11",
+    "@vramework/core": "^0.3",
+    "@vramework/deploy-next": "^0.3",
+    "@vramework/services-local": "^0.3",
+    "next": "^14",
+    "path-to-regexp": "^8.2.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.7.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@vramework/cli": "^0.3.8",
+    "@vramework/cli": "^0.3.13",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "resolutions": {
+    "@vramework/cli": "portal:/Users/yasser/git/vramework/vramework/packages/cli",
+    "@vramework/core": "portal:/Users/yasser/git/vramework/vramework/packages/core",
+    "@vramework/deploy-express": "portal:/Users/yasser/git/vramework/vramework/packages/deploy-express",
+    "@vramework/deploy-fastify": "portal:/Users/yasser/git/vramework/vramework/packages/deploy-fastify",
+    "@vramework/deploy-lambda": "portal:/Users/yasser/git/vramework/vramework/packages/deploy-lambda",
+    "@vramework/deploy-next": "portal:/Users/yasser/git/vramework/vramework/packages/deploy-next",
+    "@vramework/deploy-uws": "portal:/Users/yasser/git/vramework/vramework/packages/deploy-uws",
+    "@vramework/services-aws": "portal:/Users/yasser/git/vramework/vramework/packages/services-aws",
+    "@vramework/services-local": "portal:/Users/yasser/git/vramework/vramework/packages/services-local"
   }
 }

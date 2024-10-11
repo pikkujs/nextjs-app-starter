@@ -37,6 +37,17 @@ export const vramework = () => {
     return _vramework!.actionRequest(route, method, data as any)
   }
 
+  const staticActionRequest = async <
+    Route extends keyof RoutesMap,
+    Method extends keyof RoutesMap[Route]
+  >(
+    route: Route,
+    method: Method,
+    data: RouteHandlerOf<Route, Method>['input']
+  ): Promise<RouteHandlerOf<Route, Method>['output']> => {
+    return _vramework!.staticActionRequest(route, method, data as any)
+  }
+
   const ssrRequest = <Route extends keyof RoutesMap, Method extends keyof RoutesMap[Route]>(
     request: IncomingMessage & {
       cookies: Partial<{ [key: string]: string }>;
@@ -59,6 +70,7 @@ export const vramework = () => {
   }
 
   return {
+    staticActionRequest,
     actionRequest,
     apiRequest,
     ssrRequest

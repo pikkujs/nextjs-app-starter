@@ -21,7 +21,7 @@ async function deleteBook(id: string) {
 }
 
 export default async function BooksPage() {
-  const books = await vramework().actionRequest(
+  const books = await vramework().staticActionRequest(
     '/books',
     'get',
     null
