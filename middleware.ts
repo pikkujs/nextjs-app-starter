@@ -5,7 +5,7 @@ import { VrameworkNextRequest } from '@vramework/deploy-next/vramework-next-requ
 import { UserSession } from './backend/api'
 
 // 1. Specify protected and public routes
-const protectedRoutes = ['/todos']
+const protectedRoutes = ['/books']
 const publicRoutes = ['/login', '/']
 
 const jwtService = new JoseJWTService<UserSession>(async () => [
@@ -40,13 +40,13 @@ export default async function middleware(req: NextRequest) {
     return NextResponse.redirect(new URL('/login', req.nextUrl))
   }
 
-  // 6. Redirect to /todos if the user is authenticated
+  // 6. Redirect to /books if the user is authenticated
   if (
     isPublicRoute &&
     userSession?.userId &&
-    !req.nextUrl.pathname.startsWith('/todos')
+    !req.nextUrl.pathname.startsWith('/books')
   ) {
-    return NextResponse.redirect(new URL('/todos', req.nextUrl))
+    return NextResponse.redirect(new URL('/books', req.nextUrl))
   }
 
   return NextResponse.next()

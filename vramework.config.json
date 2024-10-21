@@ -1,5 +1,6 @@
 {
   "rootDir": ".",
+  "vrameworkNextFile": "./generated/vramework-nextjs.ts",
   "routeDirectories": ["./backend"],
   "schemaOutputDirectory": "./backend/generated",
   "routesOutputFile": "./backend/generated/routes.ts",

@@ -2,15 +2,15 @@ import {
   VrameworkSessionService,
   JoseJWTService,
 } from '@vramework/services-local'
-import { ConsoleLogger, CreateSessionServices } from '@vramework/core'
+import { ConsoleLogger, CreateSessionServices, CreateSingletonServices } from '@vramework/core'
 
-import { Config, SingletonServices, UserSession } from './api'
+import { Config, Services, SingletonServices, UserSession } from './api'
 import { BookService } from './book.service'
 
 import './generated/routes'
 import './generated/schemas'
 
-export const createSingletonServices = async (
+export const createSingletonServices: CreateSingletonServices<Config, SingletonServices> = async (
   config: Config
 ): Promise<SingletonServices> => {
   const logger = new ConsoleLogger()
@@ -43,7 +43,7 @@ export const createSingletonServices = async (
   }
 }
 
-export const createSessionServices: CreateSessionServices = async (
+export const createSessionServices: CreateSessionServices<SingletonServices, UserSession, Services> = async (
   singletonServices,
   _session
 ) => {

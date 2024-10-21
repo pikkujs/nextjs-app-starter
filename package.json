@@ -1,5 +1,5 @@
 {
-  "name": "@vraemwork/nextjs-app-starter",
+  "name": "@vramework/nextjs-app-starter",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,13 +9,15 @@
     "lint": "next lint",
     "routes": "npx --yes @vramework/cli routes",
     "schemas": "npx --yes @vramework/cli schemas",
-    "prebuild": "npm run routes && npm run schemas",
-    "tsc": "tsc"
+    "nextjs": "npx --yes @vramework/cli nextjs",
+    "prebuild": "npm run routes && npm run nextjs && npm run schemas",
+    "tsc": "tsc",
+    "ncu:vramework": "ncu -f '/@vramework/.*/' -u && npm install"
   },
   "dependencies": {
-    "@vramework/core": "^0.3",
-    "@vramework/deploy-next": "^0.3",
-    "@vramework/services-local": "^0.3",
+    "@vramework/core": "^0.4",
+    "@vramework/deploy-next": "^0.4",
+    "@vramework/services-local": "^0.4",
     "next": "^14",
     "path-to-regexp": "^8.2.0",
     "react": "^18",
@@ -27,20 +29,10 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@vramework/cli": "^0.3.13",
+    "@vramework/cli": "^0.4.5",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   },
-  "resolutions": {
-    "@vramework/cli": "portal:/Users/yasser/git/vramework/vramework/packages/cli",
-    "@vramework/core": "portal:/Users/yasser/git/vramework/vramework/packages/core",
-    "@vramework/deploy-express": "portal:/Users/yasser/git/vramework/vramework/packages/deploy-express",
-    "@vramework/deploy-fastify": "portal:/Users/yasser/git/vramework/vramework/packages/deploy-fastify",
-    "@vramework/deploy-lambda": "portal:/Users/yasser/git/vramework/vramework/packages/deploy-lambda",
-    "@vramework/deploy-next": "portal:/Users/yasser/git/vramework/vramework/packages/deploy-next",
-    "@vramework/deploy-uws": "portal:/Users/yasser/git/vramework/vramework/packages/deploy-uws",
-    "@vramework/services-aws": "portal:/Users/yasser/git/vramework/vramework/packages/services-aws",
-    "@vramework/services-local": "portal:/Users/yasser/git/vramework/vramework/packages/services-local"
-  }
+  "packageManager": "^npm@10.8.2"
 }

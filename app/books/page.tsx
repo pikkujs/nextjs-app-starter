@@ -1,5 +1,5 @@
 import { CreateBook } from '@/backend/books.types'
-import { vramework } from '../../backend/vramework'
+import { vramework } from '@/generated/vramework-nextjs'
 import { BookList } from '@/components/BookList'
 
 async function addBook(book: CreateBook) {
