@@ -1,5 +1,6 @@
 import {
   CoreConfig,
+  CoreServices,
   CoreSingletonServices,
   CoreUserSession,
   JWTService
@@ -17,4 +18,4 @@ export type SingletonServices = CoreSingletonServices & {
   books: BookService
 }
 
-export interface Services extends SingletonServices {}
+export interface Services extends CoreServices<SingletonServices> {}

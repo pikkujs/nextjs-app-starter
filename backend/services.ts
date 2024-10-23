@@ -1,10 +1,11 @@
 import { ConsoleLogger, CreateSessionServices, CreateSingletonServices, VrameworkSessionService } from '@vramework/core'
 
-import { Config, Services, SingletonServices, UserSession } from './api'
+import { Config, Services, SingletonServices, UserSession } from './application-types'
 import { BookService } from './book.service'
 
-import './generated/routes'
-import './generated/schemas'
+import './.vramework/routes'
+import './.vramework/schemas'
+
 import { JoseJWTService } from '@vramework/jose'
 
 export const createSingletonServices: CreateSingletonServices<Config, SingletonServices> = async (

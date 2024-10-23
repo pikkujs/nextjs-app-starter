@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { UserSession } from './backend/api'
+import { UserSession } from './backend/application-types'
 import { JoseJWTService } from '@vramework/jose'
 import { VrameworkSessionService } from '@vramework/core/services/vramework-session-service'
 import { VrameworkNextRequest } from '@vramework/next/vramework-next-request'

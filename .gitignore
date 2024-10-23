@@ -9,9 +9,11 @@ yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
 
+# Vramework
+.vramework
+
 # NextJS
 .next
-backend/generated
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
