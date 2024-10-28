@@ -3,8 +3,7 @@ import { ConsoleLogger, CreateSessionServices, CreateSingletonServices, Vramewor
 import { Config, Services, SingletonServices, UserSession } from './application-types'
 import { BookService } from './book.service'
 
-import './.vramework/routes'
-import './.vramework/schemas'
+import './.vramework/vramework-bootstrap'
 
 import { JoseJWTService } from '@vramework/jose'
 

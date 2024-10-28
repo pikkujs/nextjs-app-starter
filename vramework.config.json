@@ -1,10 +1,6 @@
 {
   "tsconfig": "./tsconfig.json",
-  "rootDir": ".",
   "routeDirectories": ["./backend"],
-  "schemaDirectory": "./backend/.vramework",
-  "routesFile": "./backend/.vramework/routes.ts",
-  "typesDeclarationFile": "./backend/.vramework/vramework-types.d.ts",
-  "routesMapDeclarationFile": "./backend/.vramework/vramework-routes.d.ts",
+  "outDir": "./backend/.vramework",
   "nextDeclarationFile": "./vramework-nextjs.ts"
 }
