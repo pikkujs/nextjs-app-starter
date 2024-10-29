@@ -12,7 +12,7 @@
     "ncu:vramework": "ncu -f '/@vramework/.*/' -u && npm install"
   },
   "dependencies": {
-    "@vramework/core": "^0.5.5",
+    "@vramework/core": "^0.5.6",
     "@vramework/jose": "^0.5.1",
     "@vramework/next": "^0.5.2",
     "next": "^14",
@@ -26,7 +26,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@vramework/cli": "^0.5.12",
+    "@vramework/cli": "^0.5.14",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
