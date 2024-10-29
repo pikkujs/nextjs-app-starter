@@ -2,5 +2,6 @@
   "tsconfig": "./tsconfig.json",
   "routeDirectories": ["./backend"],
   "outDir": "./backend/.vramework",
-  "nextDeclarationFile": "./vramework-nextjs.ts"
+  "nextDeclarationFile": "./vramework-nextjs.ts",
+    "fetchFile": "./vramework-fetch.ts"
 }
