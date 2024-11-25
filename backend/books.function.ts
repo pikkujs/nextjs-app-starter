@@ -7,7 +7,7 @@ addRoute({
   auth: false,
   method: 'get',
   route: '/books',
-  func: async (services: Services) => await services.books.getBooks(),
+  func: async (services: Services) => await services.books.getBooks()
 })
 
 addRoute({

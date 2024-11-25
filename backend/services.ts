@@ -1,4 +1,4 @@
-import { ConsoleLogger, CreateSessionServices, CreateSingletonServices, VrameworkSessionService } from '@vramework/core'
+import { ConsoleLogger, CreateSessionServices, CreateSingletonServices, VrameworkHTTPSessionService } from '@vramework/core'
 
 import { Config, Services, SingletonServices, UserSession } from './application-types'
 import { BookService } from './book.service'
@@ -26,7 +26,7 @@ export const createSingletonServices: CreateSingletonServices<Config, SingletonS
     logger
   )
 
-  const sessionService = new VrameworkSessionService(jwt, {})
+  const sessionService = new VrameworkHTTPSessionService(jwt, {})
 
   const booksService = new BookService()
   books.forEach(book => booksService.createBook(book))
