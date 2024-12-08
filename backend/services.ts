@@ -1,4 +1,6 @@
-import { ConsoleLogger, CreateSessionServices, CreateSingletonServices, VrameworkHTTPSessionService } from '@vramework/core'
+import { CreateSessionServices, CreateSingletonServices } from '@vramework/core'
+import { ConsoleLogger } from '@vramework/core/services'
+import { VrameworkHTTPSessionService } from '@vramework/core/http'
 
 import { Config, Services, SingletonServices, UserSession } from './application-types'
 import { BookService } from './book.service'
