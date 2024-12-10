@@ -1,6 +1,6 @@
-import { CreateBook } from '@/backend/books.types'
-import { vramework } from '@/vramework-nextjs'
-import { BookList } from '@/components/BookList'
+import { CreateBook } from '@/backend/books.types.js'
+import { vramework } from '@/vramework-nextjs.js'
+import { BookList } from '@/components/BookList.js'
 
 async function addBook(book: CreateBook) {
   'use server'

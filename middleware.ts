@@ -1,8 +1,8 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { UserSession } from './backend/application-types'
+import { UserSession } from './backend/application-types.js'
 import { JoseJWTService } from '@vramework/jose'
 import { VrameworkHTTPSessionService } from '@vramework/core/http/vramework-http-session-service'
 import { VrameworkNextRequest } from '@vramework/next/vramework-next-request'
+import { NextRequest, NextResponse } from 'next/server.js'
 
 // 1. Specify protected and public routes
 const protectedRoutes = ['/books']
@@ -29,11 +29,17 @@ export default async function middleware(req: NextRequest) {
   const isProtectedRoute = protectedRoutes.includes(path)
   const isPublicRoute = publicRoutes.includes(path)
 
-  // 3. Decrypt the session from the cookie
-  const userSession = await sessionService.getUserSession(
-    false,
-    new VrameworkNextRequest(req as any) as any
-  )
+  let userSession
+  try {
+    // 2. Decrypt the session from the cookie
+    userSession = await sessionService.getUserSession(
+      false,
+      new VrameworkNextRequest(req as any) as any
+    )
+  } catch (e) {
+    // An error trying to get the user session
+    console.error(e)
+  }
 
   // 3. Redirect to /login if the user is not authenticated
   if (isProtectedRoute && !userSession?.userId) {

@@ -1,10 +1,10 @@
 import { addRoute } from '@vramework/core/http'
 
-import type { UpdateBook, CreateBook, JustBookId, Books, Book } from './books.types'
-import type { Services } from './application-types'
-import type { APIFunction } from './.vramework/vramework-types'
+import type { UpdateBook, CreateBook, JustBookId, Books, Book } from './books.types.js'
+import type { Services } from './application-types.js'
+import type { APIFunction } from './.vramework/vramework-types.js'
 
-const getBooks: APIFunction<null, Books> = async (services: Services) => {
+const getBooks: APIFunction<void, Books> = async (services: Services) => {
   return await services.books.getBooks()
 }
 
@@ -48,7 +48,7 @@ addRoute({
   func: updateBook
 })
 
-const deleteBook: APIFunction<UpdateBook, void> = async (services, book) => {
+const deleteBook: APIFunction<JustBookId, void> = async (services, book) => {
   await services.books.deleteBook(book.id)
 }
 
