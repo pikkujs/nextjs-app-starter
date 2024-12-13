@@ -5,8 +5,8 @@
       "dom.iterable",
       "esnext"
     ],
-    "module": "Node16",
-    "target": "es2015",
+    "module": "NodeNext",
+    "target": "ESNext",
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,

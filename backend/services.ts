@@ -27,7 +27,7 @@ export const createSingletonServices: CreateSingletonServices<Config, SingletonS
     logger
   )
 
-  const sessionService = new VrameworkHTTPSessionService(jwt, {})
+  const httpSessionService = new VrameworkHTTPSessionService(jwt, {})
 
   const booksService = new BookService()
   books.forEach(book => booksService.createBook(book))
@@ -36,7 +36,7 @@ export const createSingletonServices: CreateSingletonServices<Config, SingletonS
     config,
     logger,
     jwt,
-    sessionService,
+    httpSessionService,
     books: booksService
   }
 }
