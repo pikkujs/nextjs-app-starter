@@ -1,5 +1,5 @@
 import { CreateSessionServices, CreateSingletonServices } from '@vramework/core'
-import { ConsoleLogger } from '@vramework/core/services'
+import { ConsoleLogger, LocalVariablesService } from '@vramework/core/services'
 import { VrameworkHTTPSessionService } from '@vramework/core/http'
 import { JoseJWTService } from '@vramework/jose'
 
@@ -16,6 +16,8 @@ export const createSingletonServices: CreateSingletonServices<Config, SingletonS
   if (config.logLevel) {
     logger.setLevel(config.logLevel)
   }
+
+  const variablesService = new LocalVariablesService()
 
   const jwt = new JoseJWTService<UserSession>(
     async () => [
@@ -36,12 +38,13 @@ export const createSingletonServices: CreateSingletonServices<Config, SingletonS
     config,
     logger,
     jwt,
+    variablesService,
     httpSessionService,
     books: booksService
   }
 }
 
-export const createSessionServices: CreateSessionServices<SingletonServices, UserSession, Services> = async (
+export const createSessionServices: CreateSessionServices<SingletonServices, Services, UserSession> = async (
   singletonServices,
   _session
 ) => {

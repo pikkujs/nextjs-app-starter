@@ -1,4 +1,4 @@
-import { addRoute } from '@vramework/core/http'
+import { addRoute } from '@vramework/core'
 
 import type { UpdateBook, CreateBook, JustBookId, Books, Book } from './books.types.js'
 import type { Services } from './application-types.js'
