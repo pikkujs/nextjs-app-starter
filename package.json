@@ -1,5 +1,5 @@
 {
-  "name": "@vramework/nextjs-app-starter",
+  "name": "@pikku/nextjs-app-starter",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -8,15 +8,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prebuild": "npx --yes @vramework/cli",
+    "prebuild": "npx --yes @pikku/cli",
     "tsc": "tsc",
-    "ncu:vramework": "ncu -f '/@vramework/.*/' -u && npm install"
+    "ncu:pikku": "ncu -f '/@pikku/.*/' -u && npm install"
   },
   "dependencies": {
-    "@vramework/core": "^0.6.4",
-    "@vramework/fetch": "^0.6.0",
-    "@vramework/jose": "^0.6.0",
-    "@vramework/next": "^0.6.2",
+    "@pikku/core": "^0.6.13",
+    "@pikku/fetch": "^0.6.2",
+    "@pikku/jose": "^0.6.2",
+    "@pikku/next": "^0.6.4",
     "next": "^15",
     "react": "^19",
     "react-dom": "^19",
@@ -27,7 +27,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@vramework/cli": "^0.6.3",
+    "@pikku/cli": "^0.6.11",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"

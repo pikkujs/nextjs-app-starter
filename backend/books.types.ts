@@ -1,4 +1,4 @@
-import { RequireAtLeastOne } from '@vramework/core'
+import { RequireAtLeastOne } from '@pikku/core'
 
 export interface Book {
   id: string

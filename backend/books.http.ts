@@ -1,8 +1,8 @@
-import { addRoute } from '@vramework/core'
+import { addRoute } from '@pikku/core'
 
 import type { UpdateBook, CreateBook, JustBookId, Books, Book } from './books.types.js'
 import type { Services } from './application-types.js'
-import type { APIFunction } from './.vramework/vramework-types.js'
+import type { APIFunction } from './.pikku/pikku-types.gen.js'
 
 const getBooks: APIFunction<void, Books> = async (services: Services) => {
   return await services.books.getBooks()

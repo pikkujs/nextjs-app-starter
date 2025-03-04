@@ -1,10 +1,10 @@
 import { CreateBook } from '@/backend/books.types.js'
-import { vramework } from '@/vramework-nextjs.js'
+import { pikku } from '@/pikku-nextjs.js'
 import { BookList } from '@/components/BookList.js'
 
 async function addBook(book: CreateBook) {
   'use server'
-  await vramework().actionRequest(
+  await pikku().actionRequest(
     '/book',
     'post',
     book
@@ -13,7 +13,7 @@ async function addBook(book: CreateBook) {
 
 async function deleteBook(id: string) {
   'use server'
-  await vramework().actionRequest(
+  await pikku().actionRequest(
     '/book/:id',
     'delete',
     { id }
@@ -21,7 +21,7 @@ async function deleteBook(id: string) {
 }
 
 export default async function BooksPage() {
-  const books = await vramework().staticActionRequest(
+  const books = await pikku().staticActionRequest(
     '/books',
     'get',
     null

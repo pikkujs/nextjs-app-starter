@@ -31,7 +31,8 @@
       "./node_modules/@types",
       "./types"
     ],
-    "moduleResolution": "Node16"
+    "moduleResolution": "Node16",
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",

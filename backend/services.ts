@@ -1,12 +1,12 @@
-import { CreateSessionServices, CreateSingletonServices } from '@vramework/core'
-import { ConsoleLogger, LocalVariablesService } from '@vramework/core/services'
-import { VrameworkHTTPSessionService } from '@vramework/core/http'
-import { JoseJWTService } from '@vramework/jose'
+import { CreateSessionServices, CreateSingletonServices } from '@pikku/core'
+import { ConsoleLogger, LocalVariablesService } from '@pikku/core/services'
+import { PikkuHTTPSessionService } from '@pikku/core/http'
+import { JoseJWTService } from '@pikku/jose'
 
 import { Config, Services, SingletonServices, UserSession } from './application-types.js'
 import { BookService } from './book.service.js'
 
-import './.vramework/vramework-bootstrap'
+import './.pikku/pikku-bootstrap.js'
 
 export const createSingletonServices: CreateSingletonServices<Config, SingletonServices> = async (
   config: Config
@@ -29,7 +29,7 @@ export const createSingletonServices: CreateSingletonServices<Config, SingletonS
     logger
   )
 
-  const httpSessionService = new VrameworkHTTPSessionService(jwt, {})
+  const httpSessionService = new PikkuHTTPSessionService(jwt, {})
 
   const booksService = new BookService()
   books.forEach(book => booksService.createBook(book))

@@ -1,8 +1,0 @@
-{
-  "$schema": "https://raw.githubusercontent.com/vramework/vramework/refs/heads/master/packages/cli/cli.schema.json",
-  "tsconfig": "./tsconfig.json",
-  "routeDirectories": ["./backend"],
-  "outDir": "./backend/.vramework",
-  "nextJSfile": "./vramework-nextjs.ts",
-  "supportsImportAttributes": true
-}

@@ -1,5 +1,5 @@
 import { Book, Books, CreateBook } from './books.types.js'
-import { NotFoundError } from '@vramework/core/errors'
+import { NotFoundError } from '@pikku/core/errors'
 
 /**
  * Service for managing books with basic CRUD operations.

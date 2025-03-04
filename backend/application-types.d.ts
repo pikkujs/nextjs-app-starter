@@ -4,7 +4,7 @@ import {
   CoreSingletonServices,
   CoreUserSession,
   JWTService
-} from '@vramework/core'
+} from '@pikku/core'
 import { BookService } from './book.service.js'
 
 export interface Config extends CoreConfig {}

@@ -9,8 +9,8 @@ yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
 
-# Vramework
-.vramework
+# Pikkui
+.pikku
 
 # NextJS
 .next
