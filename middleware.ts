@@ -5,8 +5,8 @@ import { PikkuNextRequest } from '@pikku/next/pikku-next-request'
 import { NextRequest, NextResponse } from 'next/server.js'
 
 // 1. Specify protected and public routes
-const protectedRoutes = ['/books']
-const publicRoutes = ['/login', '/']
+const protectedRoutes: string[] = []
+const publicRoutes: string[] = ['/books', '/']
 
 const jwtService = new JoseJWTService<UserSession>(async () => [
   {
