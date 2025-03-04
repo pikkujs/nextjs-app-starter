@@ -4,27 +4,23 @@ import { BookList } from '@/components/BookList.js'
 
 async function addBook(book: CreateBook) {
   'use server'
-  await pikku().actionRequest(
+  await pikku().post(
     '/book',
-    'post',
     book
   )
 }
 
 async function deleteBook(id: string) {
   'use server'
-  await pikku().actionRequest(
+  await pikku().del(
     '/book/:id',
-    'delete',
     { id }
   )
 }
 
 export default async function BooksPage() {
-  const books = await pikku().staticActionRequest(
-    '/books',
-    'get',
-    null
+  const books = await pikku().staticGet(
+    '/books'
   )
 
   return <BookList books={books} addBook={addBook} deleteBook={deleteBook}/>

@@ -6,7 +6,7 @@ import { JoseJWTService } from '@pikku/jose'
 import { Config, Services, SingletonServices, UserSession } from './application-types.js'
 import { BookService } from './book.service.js'
 
-import './.pikku/pikku-bootstrap.js'
+import './.pikku/pikku-bootstrap.gen.js'
 
 export const createSingletonServices: CreateSingletonServices<Config, SingletonServices> = async (
   config: Config
