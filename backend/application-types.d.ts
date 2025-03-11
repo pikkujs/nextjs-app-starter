@@ -13,8 +13,8 @@ export interface UserSession extends CoreUserSession {
   userId: string
 }
 
-export type SingletonServices = CoreSingletonServices & {
-  jwt: JWTService<UserSession>
+export interface SingletonServices extends CoreSingletonServices<Config> {
+  jwt: JWTService
   books: BookService
 }
 

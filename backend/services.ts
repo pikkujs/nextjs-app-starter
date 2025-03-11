@@ -1,6 +1,5 @@
 import { CreateSessionServices, CreateSingletonServices } from '@pikku/core'
 import { ConsoleLogger, LocalVariablesService } from '@pikku/core/services'
-import { PikkuHTTPSessionService } from '@pikku/core/http'
 import { JoseJWTService } from '@pikku/jose'
 
 import { Config, Services, SingletonServices, UserSession } from './application-types.js'
@@ -30,8 +29,6 @@ export const createSingletonServices: CreateSingletonServices<Config, SingletonS
     logger
   )
 
-  const httpSessionService = new PikkuHTTPSessionService(jwt, {})
-
   const booksService = new BookService()
   books.forEach(book => booksService.createBook(book))
 
@@ -40,7 +37,6 @@ export const createSingletonServices: CreateSingletonServices<Config, SingletonS
     logger,
     jwt,
     variablesService,
-    httpSessionService,
     books: booksService
   }
 }
