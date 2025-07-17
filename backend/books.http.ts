@@ -1,60 +1,39 @@
-import { addRoute } from '@pikku/core'
+import { addHTTPRoute } from '@pikku/core'
 
 import type { UpdateBook, CreateBook, JustBookId, Books, Book } from './books.types.js'
-import type { Services } from './application-types.js'
-import type { APIFunction } from './.pikku/pikku-types.gen.js'
+import { pikkuSessionlessFunc } from './.pikku/pikku-types.gen.js'
 
-const getBooks: APIFunction<void, Books> = async (services: Services) => {
-  return await services.books.getBooks()
-}
-
-addRoute({
+addHTTPRoute({
   auth: false,
   method: 'get',
   route: '/books',
-  func: getBooks
+  func: pikkuSessionlessFunc<void, Books>(async (services) => services.books.getBooks())
 })
 
-const createBook: APIFunction<CreateBook, void> = async (services, book) => {
-  await services.books.createBook(book)
-}
-
-addRoute({
+addHTTPRoute({
   auth: false,
   method: 'post',
   route: '/book',
-  func: createBook
+  func: pikkuSessionlessFunc<CreateBook, Book>(async (services, book) => services.books.createBook(book))
 })
 
-const getBook: APIFunction<JustBookId, Book> = async (services, book) => {
-  return await services.books.getBook(book.id)
-}
-
-addRoute({
+addHTTPRoute({
   auth: false,
   method: 'get',
   route: '/book/:id',
-  func: getBook
+  func: pikkuSessionlessFunc<JustBookId, Book>(async (services, book) => services.books.getBook(book.id))
 })
 
-const updateBook: APIFunction<UpdateBook, Book> = async (services, { id, ...update }) => {
-  return await services.books.updateBook(id, update)
-}
-
-addRoute({
+addHTTPRoute({
   auth: false,
   method: 'patch',
   route: '/book/:id',
-  func: updateBook
+  func: pikkuSessionlessFunc<UpdateBook, Book>(async (services, book) => services.books.updateBook(book.id, book))
 })
 
-const deleteBook: APIFunction<JustBookId, void> = async (services, book) => {
-  await services.books.deleteBook(book.id)
-}
-
-addRoute({
+addHTTPRoute({
   auth: false,
   method: 'delete',
   route: '/book/:id',
-  func: deleteBook
+  func: pikkuSessionlessFunc<JustBookId, boolean>(async (services, book) => services.books.deleteBook(book.id))
 })

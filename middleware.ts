@@ -1,6 +1,6 @@
-import { PikkuNextRequest } from '@pikku/next/pikku-next-request'
+import { getSession } from '@pikku/next/pikku-session'
 import { NextRequest, NextResponse } from 'next/server.js'
-import { pikku } from './pikku-nextjs.js'
+import { SingletonServices, UserSession } from './backend/application-types.js'
 
 // 1. Specify protected and public routes
 const protectedRoutes: string[] = []
@@ -16,8 +16,9 @@ export default async function middleware(req: NextRequest) {
   try {
     // We would assign the middleware we care about
     // here in order to get the user session
-    userSession = await pikku().getSession(
-      new PikkuNextRequest(req as any) as any,
+    userSession = await getSession<UserSession>(
+      req,
+      {} as SingletonServices, // Singleton Services Required by session
       []
     )
   } catch (e) {

@@ -9,17 +9,14 @@
  * This file provides a wrapper around the PikkuNextJS class to allow for methods to be type checked against your routes.
  * It ensures type safety for route handling methods when integrating with the @pikku/core framework.
  */
-import { PikkuMiddleware } from '@pikku/core'
-import { PikkuNextJS, PikkuNextRequest } from '@pikku/next'
-import type { RoutesMap, RouteHandlerOf, RoutesWithMethod } from './backend/.pikku/pikku-routes-map.gen.d.js'
+import { PikkuNextJS } from '@pikku/next'
+import type { RoutesMap, RouteHandlerOf, RoutesWithMethod } from './backend/.pikku/http/pikku-http-routes-map.gen.d.js'
 
 import { getConfig as createConfig } from './backend/config.js'
 import { createSingletonServices as createSingletonServices } from './backend/services.js'
 import { createSessionServices as createSessionServices } from './backend/services.js'
-import type { UserSession as UserSession } from './backend/application-types.d.js'
 
-import './backend/.pikku/pikku-routes.gen.js'
-import './backend/.pikku/pikku-schemas/register.gen.js'
+import './backend/.pikku/http/pikku-bootstrap-http.gen.js'
 
 let _pikku: PikkuNextJS | undefined
 
@@ -28,27 +25,13 @@ let _pikku: PikkuNextJS | undefined
  *
  * @returns An object containing methods for making dynamic and static action requests, as well as session retrieval.
  */
-export const pikku = () => {
+export const pikku = (_options?: any) => {
   if (!_pikku) {
     _pikku = new PikkuNextJS(
       createConfig as any,
       createSingletonServices as any,
       createSessionServices
     )
-  }
-
-  /**
-   * Retrieves the user session using the current PikkuNextJS instance.
-   *
-   * @param request - The Next.js request object.
-   * @param middleware - An array of middleware functions to process the request.
-   * @returns A promise that resolves to the user session.
-   */
-  const getSession = async (
-    request: PikkuNextRequest,
-    middleware: PikkuMiddleware[]
-  ): Promise<UserSession | undefined> => {
-    return _pikku!.getSession(request, middleware) as any
   }
 
   /**
@@ -188,7 +171,6 @@ export const pikku = () => {
   }
 
   return {
-    getSession,
     get: dynamicGet,
     post: dynamicPost,
     patch: dynamicPatch,

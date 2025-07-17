@@ -14,16 +14,17 @@ async function addBook(book: CreateBook) {
 
 async function deleteBook(id: string) {
   'use server'
-  await pikku().del(
-    '/book/:id',
-    { id }
-  )
+  await pikku().del('/book/:id',{ id })
   revalidatePath('/')
 }
 
+async function getBook (id: string) {
+  'use server'
+  return await pikku().get('/book/:id', { id })
+}
+
 export default async function BooksPage() {
-  const books = await pikku().staticGet(
-    '/books'
-  )
+  const books = await pikku().staticGet('/books')
   return <BookList books={books} addBook={addBook} deleteBook={deleteBook}/>
 }
+

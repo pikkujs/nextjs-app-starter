@@ -6,7 +6,7 @@ import { Config, Services, SingletonServices, UserSession } from './application-
 import { BookService } from './book.service.js'
 
 import './.pikku/pikku-bootstrap.gen.js'
-import { books } from './books.js'
+import { books } from './books.data.js'
 
 export const createSingletonServices: CreateSingletonServices<Config, SingletonServices> = async (
   config: Config
@@ -17,9 +17,9 @@ export const createSingletonServices: CreateSingletonServices<Config, SingletonS
     logger.setLevel(config.logLevel)
   }
 
-  const variablesService = new LocalVariablesService()
+  const variables = new LocalVariablesService()
 
-  const jwt = new JoseJWTService<UserSession>(
+  const jwt = new JoseJWTService(
     async () => [
       {
         id: 'my-key',
@@ -36,7 +36,7 @@ export const createSingletonServices: CreateSingletonServices<Config, SingletonS
     config,
     logger,
     jwt,
-    variablesService,
+    variables,
     books: booksService
   }
 }
